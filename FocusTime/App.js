@@ -1,20 +1,21 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform , SafeAreaView} from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>Hello World!</Text>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  // here, you can put CSS code
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // the StatusBar refers to the top bar with the time, wifi logo, and battery icon
+    paddingTop: Platform.OS === 'android' ? StatusBar.arguments.currentHeight : 10, // this is in PIXELS
+    backgroundColor: "#8803fc",
   },
 });
