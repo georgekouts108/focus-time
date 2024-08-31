@@ -20,6 +20,7 @@ export const Timer = (props) => {
         setIsStarted(false);
         setProgress(1);
         reset();
+        props.onTimerEnd(props.focusSubject);
     }
 
     return (
