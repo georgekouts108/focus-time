@@ -1,10 +1,13 @@
 import React, {useState} from "react"
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, Vibration} from 'react-native'
 import { colors } from "../utils/colors"
 import { RoundedButton } from "../components/RoundedButton"
 import { spacing, fontSizes } from "../utils/sizes"
 import { Countdown } from "../components/Countdown"
 import { ProgressBar } from 'react-native-paper'
+
+const VIBRATION_PATTERN = [1000, 1000, 1000, 1000, 1000]
+
 
 export const Timer = (props) => {
     const [isStarted, setIsStarted] = useState(false)
@@ -13,7 +16,7 @@ export const Timer = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.countdown}>
-                <Countdown minutes={minutes} isPaused={!isStarted} onEnd={()=>{}} onProgress={setProgress}/>
+                <Countdown minutes={minutes} isPaused={!isStarted} onEnd={()=>{Vibration.vibrate(VIBRATION_PATTERN)}} onProgress={setProgress}/>
             </View>
             <View>
                 <Text style={styles.textDefault}>Focusing on:</Text>
