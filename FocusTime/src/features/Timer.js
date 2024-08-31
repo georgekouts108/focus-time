@@ -8,15 +8,22 @@ import { ProgressBar } from 'react-native-paper'
 
 const VIBRATION_PATTERN = [1000, 1000, 1000, 1000, 1000]
 
-
 export const Timer = (props) => {
     const [isStarted, setIsStarted] = useState(false)
-    const [minutes, setMinutes] = useState(0)
+    const [minutes, setMinutes] = useState(0.1)
     const [progress, setProgress] = useState(1)
+
+    const onEnd = (reset) => {
+        Vibration.vibrate(VIBRATION_PATTERN);
+        setIsStarted(false);
+        setProgress(1);
+        reset();
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.countdown}>
-                <Countdown minutes={minutes} isPaused={!isStarted} onEnd={()=>{Vibration.vibrate(VIBRATION_PATTERN)}} onProgress={setProgress}/>
+                <Countdown minutes={minutes} isPaused={!isStarted} onEnd={onEnd} onProgress={setProgress}/>
             </View>
             <View>
                 <Text style={styles.textDefault}>Focusing on:</Text>
