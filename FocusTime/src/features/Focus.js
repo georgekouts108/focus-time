@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native'
 import { colors } from "../utils/colors"
 import { TextInput } from "react-native-paper"
 import { RoundedButton } from "../components/RoundedButton"
+import { spacing, fontSizes } from "../utils/sizes"
 
 export const Focus = (props) => {
     const [subject, setSubject] = React.useState('')
@@ -32,11 +33,11 @@ const styles = StyleSheet.create({
     },
     textInput:{
         flex:0.8,
-        marginRight:10,
+        marginRight: spacing.small,
     },
     inputContainer: {
         flexDirection:'row',
-        padding:25,
+        padding: spacing.large,
         justifyContent: 'top'
     }
 })
