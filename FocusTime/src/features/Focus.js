@@ -4,7 +4,7 @@ import { colors } from "../utils/colors"
 import { TextInput } from "react-native-paper"
 import { RoundedButton } from "../components/RoundedButton"
 
-export const Focus = () => {
+export const Focus = (props) => {
     const [subject, setSubject] = React.useState('')
     
     return (
@@ -16,7 +16,7 @@ export const Focus = () => {
                 onChangeText={subject => setSubject(subject) }
                 />
                 <View style={styles.button}>
-                <RoundedButton title='titlell' size={50} />
+                <RoundedButton onPress={()=>props.addSubject(subject)} title='+' size={50} />
                 </View>
             </View>
         </View>
