@@ -7,10 +7,11 @@ import { Countdown } from "../components/Countdown"
 
 export const Timer = (props) => {
     const [isStarted, setIsStarted] = useState(false)
+    const [minutes, setMinutes] = useState(0)
     return (
         <View style={styles.container}>
             <View style={styles.countdown}>
-                <Countdown isPaused={!isStarted} onEnd={()=>{}} onProgress={()=>{}}/>
+                <Countdown minutes={minutes} isPaused={!isStarted} onEnd={()=>{}} onProgress={()=>{}}/>
             </View>
             <View>
                 <Text style={styles.textDefault}>Focusing on:</Text>
@@ -20,9 +21,9 @@ export const Timer = (props) => {
             <View style={styles.buttonWrapper}>
 
                 <View style={styles.numberButtonContainer}>
-                    <RoundedButton textStyle={{fontSize: fontSizes.medium}} style={styles.numberButton} onPress={()=>{}} title='10' size={65} />
-                    <RoundedButton textStyle={{fontSize: fontSizes.medium}} style={styles.numberButton} onPress={()=>{}} title='15' size={65} />
-                    <RoundedButton textStyle={{fontSize: fontSizes.medium}} style={styles.numberButton} onPress={()=>{}} title='20' size={65} />
+                    <RoundedButton textStyle={{fontSize: fontSizes.medium}} style={styles.numberButton} onPress={()=>{setMinutes(10)}} title='10' size={65} />
+                    <RoundedButton textStyle={{fontSize: fontSizes.medium}} style={styles.numberButton} onPress={()=>{setMinutes(15)}} title='15' size={65} />
+                    <RoundedButton textStyle={{fontSize: fontSizes.medium}} style={styles.numberButton} onPress={()=>{setMinutes(20)}} title='20' size={65} />
                 </View>
                 
                 <View style={styles.startButtonContainer}>
