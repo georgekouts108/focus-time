@@ -5,10 +5,12 @@ import { RoundedButton } from "../components/RoundedButton"
 import { spacing, fontSizes } from "../utils/sizes"
 import { Countdown } from "../components/Countdown"
 import { ProgressBar } from 'react-native-paper'
+import { useKeepAwake } from 'expo-keep-awake'
 
 const VIBRATION_PATTERN = [1000, 1000, 1000, 1000, 1000]
 
 export const Timer = (props) => {
+    useKeepAwake();
     const [isStarted, setIsStarted] = useState(false)
     const [minutes, setMinutes] = useState(0.1)
     const [progress, setProgress] = useState(1)
